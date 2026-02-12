@@ -76,7 +76,7 @@ if count == 0:
     add_product("Rose Phenyl", 85, 30)
 
 # ---------------- UI ----------------
-st.title("🧴 TAMILAN CHEMICAL Shop Website")
+st.title("🧴 TAMILAN CHEMICALS")
 
 menu = ["Home", "Customer Order", "Admin Login"]
 choice = st.sidebar.selectbox("Menu", menu)
@@ -214,3 +214,4 @@ elif choice == "Admin Login":
 
         else:
             st.error("❌ Invalid Admin Username or Password!")
+
