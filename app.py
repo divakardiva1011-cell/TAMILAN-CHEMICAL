@@ -203,5 +203,22 @@ elif choice == "Admin Login":
             if len(orders) == 0:
                 st.info("No orders yet.")
             else:
-                df = pd.DataFrame(orders)
+                df = pd.DataFrame(
+    orders,
+    columns=[
+        "ID",
+        "Customer Name",
+        "Phone",
+        "Address",
+        "Pincode",
+        "Product",
+        "Quantity",
+        "Total Price",
+        "Payment Method",
+        "UPI ID"
+    ]
+)
+
+                st.dataframe(df, use_container_width=True)
+
                 st.dataframe(df, use_container_width=True)
