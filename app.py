@@ -1,8 +1,45 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+import base64   # <-- இதையும் add பண்ணணும்
 
+# ---------- BACKGROUND VIDEO CODE HERE ----------
+def get_video_base64(video_file):
+    with open(video_file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+video_base64 = get_video_base64("bg.mp4")
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background: none;
+    }}
+
+    video {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        opacity: 0.6;
+    }}
+    </style>
+
+    <video autoplay loop muted>
+        <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
+    </video>
+    """,
+    unsafe_allow_html=True
+)
+
+# ---------- THEN YOUR DATABASE CODE START ----------
 st.set_page_config(page_title="Phenyl Shop", page_icon="🧴", layout="wide")
+
 
 # ---------------- DATABASE ----------------
 conn = sqlite3.connect("phenyl_shop.db", check_same_thread=False)
