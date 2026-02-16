@@ -113,7 +113,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------- UI ----------------
-st.title("🧴 TAMILAN CHEMICAL Shop Website")
+st.title("🧴 TAMILAN CHEMICALS")
 
 menu = ["Home", "Customer Order", "Admin Login"]
 choice = st.sidebar.selectbox("Menu", menu)
@@ -255,3 +255,4 @@ elif choice == "Admin Login":
             )
 
             st.dataframe(df, use_container_width=True)
+
